@@ -1,0 +1,9 @@
+Package: com.nahtedetihw.ifaded
+Name: iFaded
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: iPhone Switcher for iPad!
+Maintainer: Ethan Whited
+Author: Ethan Whited
+Section: Tweaks
