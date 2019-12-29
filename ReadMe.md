@@ -1,3 +1,6 @@
+![download](https://i.ibb.co/41HzxqX/banner.png)
+
+
 # iFaded
 ## iPhone app switcher for iPad!
 ### Please note that this does remove some multitasking functionality of the app switcher.
