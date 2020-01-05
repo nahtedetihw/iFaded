@@ -2,7 +2,7 @@ ARCHS = armv7 arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
 
-DEBUG = 0
+FINALPACKAGE=1
 
 TWEAK_NAME = iFaded
 $(TWEAK_NAME)_FILES = Tweak.xm

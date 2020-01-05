@@ -1,9 +1,10 @@
 #import "Tweak.h"
 HBPreferences *preferences;
-static int switcherStyle = 1;
+BOOL enabled;
 static int backdropBlur = 0;
-static double pageScale = 0.5;
 static int homescreenBlur = 0;
+static int switcherStyle = 1;
+double pageScale;
 
 %hook SBAppSwitcherSettings
 -(NSInteger)switcherStyle {
@@ -12,7 +13,6 @@ static int homescreenBlur = 0;
 -(void)setSwitcherStyle:(NSInteger)style {
     %orig(switcherStyle);
 }
-    
     
 -(NSInteger)backdropBlur {
     return backdropBlur;
@@ -23,11 +23,9 @@ static int homescreenBlur = 0;
     %orig(backdropBlur);
     }
     
-    
 -(NSInteger)pageScale {
     return pageScale;
     }
-
 
 -(void)setDeckSwitcherPageScale:(NSInteger)style {
     %orig(pageScale);
@@ -48,6 +46,8 @@ static int homescreenBlur = 0;
 
 %end
 
+
 %ctor {
     preferences = [[HBPreferences alloc] initWithIdentifier:@"com.nahtedetihw.ifaded"];
+    [preferences registerDouble:&pageScale default:0 forKey:@"pageScale"];
 };
