@@ -6,7 +6,7 @@
 ### Please note that this does remove some multitasking functionality of the app switcher.
 * There are all kinds of tweaks for iPad switcher on the iPhone but why not iPhone switcher on the iPad?
 * Works on iOS 10 to iOS 13!
-* Currently no options to configure.
+* Configure Page Scale from settings!
 
 ### Open Source
 * [Github Link](https://github.com/nahtedetihw/iFaded)
