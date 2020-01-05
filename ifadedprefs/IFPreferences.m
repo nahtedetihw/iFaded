@@ -20,6 +20,12 @@
         
         IFAppearanceSettings *appearanceSettings = [[IFAppearanceSettings alloc] init];
         self.hb_appearanceSettings = appearanceSettings;
+        self.killButton = [[UIBarButtonItem alloc] initWithTitle:@"Respring"
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(Respring)];
+        self.killButton.tintColor = [UIColor colorWithRed:180/255.0f green:95/255.0f blue:255/255.0f alpha:1.0f];
+        self.navigationItem.rightBarButtonItem = self.killButton;
         self.navigationItem.titleView = [UIView new];
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -117,6 +123,17 @@
     [super viewWillDisappear:animated];
 
     [self.navigationController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+}
+
+- (void)Respring {
+
+    AudioServicesPlaySystemSound(1521);
+    AudioServicesPlaySystemSound(1053);
+
+    pid_t pid;
+    const char* args[] = {"killall", "SpringBoard", NULL};
+    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+
 }
 
 @end
