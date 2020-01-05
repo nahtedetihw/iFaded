@@ -8,6 +8,32 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
+			<string>Page Scale (Respring Required)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>0.5</real>
+			<key>defaults</key>
+			<string>com.nahtedetihw.ifaded</string>
+			<key>key</key>
+			<string>pageScale</string>
+			<key>max</key>
+			<real>0.75</real>
+			<key>min</key>
+			<real>0.25</real>
+			<key>isSegmented</key>
+			<false/>
+			<key>showValue</key>
+			<true/>
+			<key>PostNotification</key>
+			<string>com.nahtedetihw.ifaded/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
 			<string></string>
 		</dict>
 		<dict>
