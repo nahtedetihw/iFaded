@@ -5,8 +5,19 @@ static int backdropBlur = 0;
 static int homescreenBlur = 0;
 static int switcherStyle = 1;
 double pageScale;
+double noTitleIcon;
+double noTitle;
 
 %hook SBAppSwitcherSettings
+
+-(NSInteger)pageScale {
+return pageScale;
+}
+
+-(void)setDeckSwitcherPageScale:(NSInteger)style {
+    %orig(pageScale);
+    }
+
 -(NSInteger)switcherStyle {
     return switcherStyle;
 }
@@ -23,14 +34,6 @@ double pageScale;
     %orig(backdropBlur);
     }
     
--(NSInteger)pageScale {
-    return pageScale;
-    }
-
--(void)setDeckSwitcherPageScale:(NSInteger)style {
-    %orig(pageScale);
-    }
-    
 %end
     
 %hook SBDeckSwitcherPersonality
@@ -43,11 +46,48 @@ double pageScale;
 -(void)homeScreenBlurProgress:(NSInteger)style {
     %orig(homescreenBlur);
     }
+    
+-(NSInteger)noTitleIcon {
+    return noTitleIcon;
+    }
+
+- (double)titleAndIconOpacityForIndex:(NSInteger)style {
+        return noTitleIcon;
+    }
+    
+-(NSInteger)noTitle {
+    return noTitle;
+    }
+
+- (double)titleOpacityForIndex:(NSInteger)style {
+        return noTitle;
+    }
 
 %end
 
+%hook SBDeckSwitcherModifier
+
+-(NSInteger)noTitleIcon {
+return noTitleIcon;
+}
+
+- (double)titleAndIconOpacityForIndex:(NSInteger)style {
+    return noTitleIcon;
+}
+
+-(NSInteger)noTitle {
+    return noTitle;
+    }
+
+- (double)titleOpacityForIndex:(NSInteger)style {
+        return noTitle;
+    }
+
+%end
 
 %ctor {
     preferences = [[HBPreferences alloc] initWithIdentifier:@"com.nahtedetihw.ifaded"];
     [preferences registerDouble:&pageScale default:0 forKey:@"pageScale"];
+    [preferences registerDouble:&noTitleIcon default:0.0 forKey:@"noTitleIcon"];
+    [preferences registerDouble:&noTitle default:0.0 forKey:@"noTitle"];
 };

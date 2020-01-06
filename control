@@ -1,7 +1,7 @@
 Package: com.nahtedetihw.ifaded
 Name: iFaded
 Depends: mobilesubstrate, ws.hbang.common
-Version: 1.1
+Version: 1.2
 Architecture: iphoneos-arm
 Description: iPhone App Switcher for iPad!
 Maintainer: Ethan Whited
