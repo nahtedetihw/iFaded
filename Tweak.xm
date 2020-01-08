@@ -1,18 +1,20 @@
 #import "Tweak.h"
 HBPreferences *preferences;
 BOOL enabled;
+BOOL noDock;
+BOOL pageDots;
 static int backdropBlur = 0;
 static int homescreenBlur = 0;
 static int switcherStyle = 1;
-double pageScale;
 double noTitleIcon;
 double noTitle;
+static double pageScale = 0.50;
 
 %hook SBAppSwitcherSettings
 
 -(NSInteger)pageScale {
-return pageScale;
-}
+    return pageScale;
+    }
 
 -(void)setDeckSwitcherPageScale:(NSInteger)style {
     %orig(pageScale);
@@ -85,9 +87,33 @@ return noTitleIcon;
 
 %end
 
+%hook SBFloatingDockBehaviorAssertion
+
+-(void)gesturePossible {
+    if (noDock) {
+    
+}
+}
+
+%end
+
+%hook SBIconListPageControl
+
+-(id)initWithFrame:(CGRect)frame {
+    if(pageDots){
+    return nil;
+    }
+    else {
+    return %orig;
+    }
+}
+
+%end
+
 %ctor {
     preferences = [[HBPreferences alloc] initWithIdentifier:@"com.nahtedetihw.ifaded"];
-    [preferences registerDouble:&pageScale default:0 forKey:@"pageScale"];
     [preferences registerDouble:&noTitleIcon default:0.0 forKey:@"noTitleIcon"];
     [preferences registerDouble:&noTitle default:0.0 forKey:@"noTitle"];
+    [preferences registerBool:&noDock default:YES forKey:@"noDock"];
+    [preferences registerBool:&pageDots default:YES forKey:@"pageDots"];
 };
