@@ -8,25 +8,19 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Page Scale (Respring Required)</string>
+			<string>Hide Dock (Respring Not Required)</string>
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSSliderCell</string>
+			<string>PSSwitchCell</string>
 			<key>default</key>
-			<real>0.25</real>
+			<true/>
 			<key>defaults</key>
 			<string>com.nahtedetihw.ifaded</string>
 			<key>key</key>
-			<string>pageScale</string>
-			<key>max</key>
-			<real>0.65</real>
-			<key>min</key>
-			<real>0.15</real>
-			<key>isSegmented</key>
-			<false/>
-			<key>showValue</key>
-			<true/>
+			<string>noDock</string>
+			<key>label</key>
+			<string>Hide Dock</string>
 			<key>PostNotification</key>
 			<string>com.nahtedetihw.ifaded/ReloadPrefs</string>
 		</dict>
@@ -34,7 +28,27 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Hide Title &amp; Icon (0=Hidden 1=Show)</string>
+			<string>Hide Page Dots (Respring Required)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.nahtedetihw.ifaded</string>
+			<key>key</key>
+			<string>pageDots</string>
+			<key>label</key>
+			<string>Hide Page Dots</string>
+			<key>PostNotification</key>
+			<string>com.nahtedetihw.ifaded/ReloadPrefs</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Hide Title &amp; Icon (0=Hidden 1=Show) (Respring Required)</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -60,7 +74,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Hide Title Only (0=Hidden 1=Show)</string>
+			<string>Hide Title Only (0=Hidden 1=Show) (Respring Required)</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -128,7 +142,15 @@
 			<key>footerAlignment</key>
 			<string>1</string>
 			<key>footerText</key>
-			<string>iFaded 1.2</string>
+			<string>iFaded 1.3</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerAlignment</key>
+			<string>1</string>
+			<key>footerText</key>
+			<string>Swipe up slowly from the bottom of the screen to invoke the dock when Hide Dock is enabled.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
